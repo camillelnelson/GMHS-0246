@@ -1,0 +1,34 @@
+#include <kipr/wombat.h>
+//212.76
+//25.66
+void turn_right (int degrees);
+void turn_left (int degrees);  
+int main()
+{
+  cmpc(0);
+    while (gmpc(0)<1000);
+    {mav(0,500);
+     mav(3,500);
+    }
+     return 0;
+}
+
+void turn_right(int degrees)
+{cmpc(3);
+ mav(0,-500);
+ mav(3,500);
+ msleep(degrees*25.66);
+ mav(0,0);
+ mav(3,0);
+    
+}
+
+void turn_left(int degrees)
+{cmpc(3);
+ mav(0,500);
+ mav(3,-500);
+ msleep(degrees*25.66);
+ mav(0,0);
+ mav(3,0);
+    
+}
