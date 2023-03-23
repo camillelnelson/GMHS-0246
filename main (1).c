@@ -1,5 +1,10 @@
 #include <kipr/wombat.h>
-
+//integers
+int first straight
+int right turn
+int sort drive
+int servo left
+int servo right
 int main()
 {
     create_connect();
