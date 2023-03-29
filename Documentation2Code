@@ -12,6 +12,22 @@ show length of claw (show it can reach the top of the serever racks)
 
 int main ()
 {
-set_servo_position(#, #);
+enable_servos();
 
+set_servo_position(0, #); //raise claw
+set_servo_position(0,#); //lower claw
+
+set_servo_position(1,#); //open claw, grab block
+set_servo_position(1,#); //close claw around block
+set_servo_position(0, #); //raise claw
+set_servo_position(0,#); //lower claw
+set_servo_position(0, #); //raise claw
+set_servo_position(0,#); //lower claw
+set_servo_position(1,#); //open claw
+mav(0,-500);
+mav(3,-500);
+msleep(1000);
+
+
+return 0;
 }
