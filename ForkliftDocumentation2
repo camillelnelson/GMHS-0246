@@ -1,5 +1,45 @@
 #include <kipr/wombat.h>
 
-int main() {
+void turn_right (int degrees);
+void turn_left (int degrees);  
+void forward (int distance);
 
+int main() {
+mav(1,150);
+msleep(2000); // lift and claw goes up for two seconds
+
+mav(1,75);
+msleep(4000); //lift and claw goes down for four seconds
+
+turn_right(90);
+forward(26);
+
+return 0;
+}
+
+void turn_right(int degrees)
+{cmpc(3);
+ mav(0,-500);
+ mav(3,500);
+ msleep(degrees*25.66);
+ mav(0,0);
+ mav(3,0); 
+}
+
+void turn_left(int degrees)
+{cmpc(3);
+ mav(0,500);
+ mav(3,-500);
+ msleep(degrees*25.66);
+ mav(0,0);
+ mav(3,0);  
+}
+
+void forward(int distance)
+{cmpc(0);
+mav(0,500):
+mav(3,500);
+msleep(distance*212.76); //distance in inches
+mav(0,0);
+mav(3,0);
 }
