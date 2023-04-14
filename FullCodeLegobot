@@ -7,14 +7,6 @@ void backwards (int distance);
 int dis_var=212.138344; 
 
 int main() {
-/*mav(1,150);
-msleep(2000); // lift and claw goes up for two seconds
-
-mav(1,75);
-msleep(4000); //lift and claw goes down for four seconds
-
-mav(1,0); //motor stops*/
-
 
 wait_for_light(#);
 shut_down_in(120);
