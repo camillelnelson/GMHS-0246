@@ -72,7 +72,7 @@ void forward(int distance)
 {cmpc(0);
 mav(0,500):
 mav(3,500);
-msleep(distance*212.76); //distance in inches
+msleep(distance*dis_var); //distance in inches
 mav(0,0);
 mav(3,0);
 }
