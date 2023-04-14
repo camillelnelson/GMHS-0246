@@ -4,6 +4,7 @@ void turn_right (int degrees);
 void turn_left (int degrees);  
 void forward (int distance);
 void backwards (int distance);
+int dis_var=212.138344; 
 
 int main() {
 /*mav(1,150);
@@ -13,6 +14,10 @@ mav(1,75);
 msleep(4000); //lift and claw goes down for four seconds
 
 mav(1,0); //motor stops*/
+
+
+wait_for_light(#);
+shut_down_in(120);
 
 //start of game - ~15 seconds
 turn_right(90);
@@ -76,7 +81,7 @@ void backwards(int distance)
 {cmpc(3);
 mav(0,-500);
 mav(3,-500);
-msleep(distance*212.76); //distance in inches
+msleep(distance*dis_var); //distance in inches
 mav(0,0);
 mav(3,0);
 }
