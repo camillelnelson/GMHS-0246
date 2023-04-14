@@ -6,15 +6,15 @@ void forward (int distance);
 void backwards (int distance);
 
 int main() {
-mav(1,150);
+/*mav(1,150);
 msleep(2000); // lift and claw goes up for two seconds
 
 mav(1,75);
 msleep(4000); //lift and claw goes down for four seconds
 
-mav(1,0); //motor stops
+mav(1,0); //motor stops*/
 
-//start of game
+//start of game - ~15 seconds
 turn_right(90);
 forward(26); //find exact value for this, what direction do we want to approach wireshark and alarm from?
 turn_left(90);
@@ -23,8 +23,24 @@ mav(1,150); /claw goes up to raise flip alarm
 msleep(2000);
 mav(1,0);
 
-forward(13);
+
+//~15 seconds - ~30 seconds
+forward(13); //find exact value
 turn_left(90);
+forward(50); //find exact value
+turn_left(90);
+forward(10); //find exact value, placing wireshark under the ping pong balls
+backwards(5);
+turn_left(180);
+
+//~30 seconds - 90 seconds
+/*What do we want to do here? 
+Based on the system we have now we can't really grab cubes/botgal, especially from the higher sever racks.
+Should legobot and create switch (Legobot grabs the drives/pool noodles and create will get the blocks)?
+*/
+
+
+
 
 return 0;
 }
