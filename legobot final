@@ -1,0 +1,78 @@
+#include <kipr/wombat.h>
+
+void turn_right (float degrees);
+void turn_left (float degrees);  
+void forward (int distance);
+void backwards (int distance);
+int dis_var=212; 
+float deg_var=12.4;
+
+int main()
+{
+
+//wait_for_light(0);
+shut_down_in(120);
+
+//start of game - ~15 seconds
+turn_left(90);
+backwards(31); //find exact value for this, what direction do we want to approach wireshark and alarm from?
+    ao();
+    msleep(2000);
+turn_left(90);
+backwards(14);
+//Supposed to flip alarm but can't
+
+/*
+//~15 seconds - ~30 seconds
+backwards(13); //find exact value
+turn_left(90);
+forward(50); //find exact value
+turn_left(90);
+forward(10); //find exact value, placing wireshark under the ping pong balls
+backwards(5);
+turn_left(180);
+
+//~30 seconds - 90 seconds
+What do we want to do here? 
+Based on the system we have now we can't really grab cubes/botgal, especially from the higher sever racks.
+Should legobot and create switch (Legobot grabs the drives/pool noodles and create will get the blocks)?
+
+
+*/
+
+
+return 0;
+}
+
+void turn_right(float degrees)
+{cmpc(0);
+    while (gmpc(0)<deg_var*degrees)
+    {
+     mav(0,500);
+        mav(3,-500);
+    } 
+    mav(0,0);
+        mav(3,0);
+}
+
+void turn_left(float degrees)
+{cmpc(3);
+    while (gmpc(3)<deg_var*degrees)
+    {
+     mav(0,500);
+        mav(3,-500);
+    } 
+    mav(0,0);
+        mav(3,0);
+}
+
+void forward(int distance)
+{cmpc(0);
+ while(gmpc(0)<distance*dis_var)
+ {mav(0,500);
+mav(3,500);
+ }
+mav(0,0);
+mav(3,0);
+}
+
