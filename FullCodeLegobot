@@ -12,17 +12,15 @@ wait_for_light(#);
 shut_down_in(120);
 
 //start of game - ~15 seconds
-turn_right(90);
-forward(26); //find exact value for this, what direction do we want to approach wireshark and alarm from?
 turn_left(90);
-
-mav(1,150); /claw goes up to raise flip alarm
-msleep(2000);
-mav(1,0);
+backwards(31); //find exact value for this, what direction do we want to approach wireshark and alarm from?
+turn_left(90);
+backwards(14);
+//Supposed to flip alarm but can't
 
 
 //~15 seconds - ~30 seconds
-forward(13); //find exact value
+backwards(13); //find exact value
 turn_left(90);
 forward(50); //find exact value
 turn_left(90);
