@@ -2,12 +2,12 @@
 
 //integers
 int servoport=0; //port for servo sweeper
-int servomiddle=1300; //middle position for sweeper
+int servomiddle=1310; //middle position for sweeper
 int servoleft=408; //left position for sweeper
 int servoright=1947; //right position for sweeper
 int armport=3; //port for servo arm
 int armup=900; //up position for arm
-int armforward=1880; //forward position for arm
+int armforward=1887; //forward position for arm
 int armback=0; //back position for arm
 int irport=0; //port for ir sensor
 int rms=100; //right motor speed
@@ -74,7 +74,7 @@ msleep(100);
     msleep(20);
     set_create_total_angle(0); // reset angle encoder
     // turn slightly right to be on black line pom
-    while(abs(get_create_total_angle())<6.35)
+    while(abs(get_create_total_angle())<6.33375)
     {
     create_drive_direct(lms,-rms); // turn right
         msleep(10);
@@ -135,6 +135,30 @@ msleep(100);
    		 msleep(10);
          }
         set_create_distance(0);
+       	set_create_total_angle(0);
+    while (abs(get_create_total_angle())<20)//shake
+    {
+        create_drive_direct(lms,-rms);
+        msleep(10);
+    }
+       	set_create_total_angle(0);
+    while (abs(get_create_total_angle())<20)//shake
+    {
+        create_drive_direct(-lms,rms);
+        msleep(10);
+    }
+           	set_create_total_angle(0);
+    while (abs(get_create_total_angle())<20)//shake
+    {
+        create_drive_direct(lms,-rms);
+        msleep(10);
+    }
+           	set_create_total_angle(0);
+    while (abs(get_create_total_angle())<20)//shake
+    {
+        create_drive_direct(-lms,rms);
+        msleep(10);
+    }
    while(abs(get_create_distance())<170)// Back up to release set of poms
          {
          create_drive_direct(-lms,-rms);//
@@ -142,7 +166,7 @@ msleep(100);
          }
         set_create_distance(0);
        	set_create_total_angle(0);
-    while (abs(get_create_total_angle())<100)//turn around to analysis lab to drop off green poms
+    while (abs(get_create_total_angle())<93.825)//turn around to analysis lab to drop off green poms
     {
         create_drive_direct(lms,-rms);
         msleep(10);
@@ -150,7 +174,7 @@ msleep(100);
      set_servo_position(armport,armforward);
     msleep(500);
             set_create_distance(0);
-   while(abs(get_create_distance())<418)// drive to analysis lab
+   while(abs(get_create_distance())<420)// drive to analysis lab
          {
          create_drive_direct(lms,rms);
    		 msleep(10);
@@ -160,19 +184,44 @@ msleep(100);
    msleep (500);
          set_servo_position(armport,armback);
     msleep(500);
-           	set_create_total_angle(0);
-//        while (abs(get_create_total_angle())<4)//turn slightly to analysis lab to drop off green poms
-//    {
-//        create_drive_direct(lms,-rms);
-//        msleep(10);
-//    }
-                set_create_distance(0);
-       while(abs(get_create_distance())<225)// drive to analysis lab
+
+       	set_create_total_angle(0);    
+            while (abs(get_create_total_angle())<5)//turn slightly
+    {
+        create_drive_direct(lms,-rms);
+        msleep(10);
+    }
+                    set_create_distance(0);
+       while(abs(get_create_distance())<300)// drive to analysis lab
          {
          create_drive_direct(lms,rms);
    		 msleep(10);
          }
         set_servo_position(servoport, servoleft); //move servo arm to left position to release green poms
+           	set_create_total_angle(0);   
+        while (abs(get_create_total_angle())<20)//shake
+    {
+        create_drive_direct(lms,-rms);
+        msleep(10);
+    }
+       	set_create_total_angle(0);
+    while (abs(get_create_total_angle())<20)//shake
+    {
+        create_drive_direct(-lms,rms);
+        msleep(10);
+    }
+           	set_create_total_angle(0);
+    while (abs(get_create_total_angle())<20)//shake
+    {
+        create_drive_direct(lms,-rms);
+        msleep(10);
+    }
+           	set_create_total_angle(0);
+    while (abs(get_create_total_angle())<20)//shake
+    {
+        create_drive_direct(-lms,rms);
+        msleep(10);
+    }
                         set_create_distance(0);
        while(abs(get_create_distance())<225)//back up from poms
          {
