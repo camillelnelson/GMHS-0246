@@ -9,11 +9,19 @@ float deg_var=12.6;
 
 int main()
 {
+
+/* To set up the legobot in the box:
+1) Place it slightly farther forward so when the servo moves it won't get caught on the backup drive holder
+2) Place it slightly left in the box, not too far left
+3) Set up legobot so it is perpendicular to the edge of the table
+*/
+
+
 enable_servos();
 wait_for_light(0);
 shut_down_in(120);
 
-//start of game - ~60 seconds
+//start of game - 15 seconds
 set_servo_position(2,900); //good
 turn_left(90); //good
 backwards(30); //good
@@ -22,12 +30,17 @@ turn_left(40);
 backwards(6); 
 turn_left(50); 
 backwards(13.5); 
+
+
+//15 seconds - 30 seconds
     set_servo_position(2,750);
 turn_left(90);
     while((digital(9)==0)||(digital(7)==0))
 {mav(0,500);
 mav(3,500);}
 backwards(40);
+
+//lines 45-58 used to get legobot over black tape, causes legobot to wiggle back and forth 
     turn_left(2);
     backwards(1);
     turn_right(2);
@@ -42,6 +55,10 @@ backwards(40);
     backwards(1);
     turn_left(2);
     backwards(1);
+    
+    
+    
+//30 seconds - 45 seconds
     backwards(20);
     turn_left(90);
     while((digital(9)==0)||(digital(7)==0))
@@ -50,29 +67,39 @@ mav(3,500);}
     backwards(21);
     turn_right(90);
     backwards(24);
+    
+    
+//45 seconds - 60 seconds
     msleep(15000);
+    
+    
+//60 seconds - 75 seconds
     forward(10);
     turn_left(90);
     while((digital(9)==0)||(digital(7)==0))
     {mav(0,500);
 mav(3,500);}
+
+
+//75 seconds - 90 seconds
     backwards(18);
     set_servo_position(2,1950);
     forward(10);
     turn_right(90);
-    forward(40);
-/*
-//~ 60 seconds - ~120 seconds
-backwards(13); //find exact value
-turn_left(90);
-forward(50); //find exact value
-turn_left(90);
-forward(10); //find exact value, placing wireshark under the ping pong balls
-backwards(5);
-turn_left(180);
-
-*/
-
+    forward(50);
+    turn_right(90);
+    forward(6);
+    
+   
+//90 seconds - 105 seconds
+    turn_left(90);
+    forward(23);
+    mav(0,0);
+    mav(3,0);
+    mav(2,200);
+    msleep(1200);
+    
+//105 seconds - 120 seconds: grace period (ie. don't have alarm flipped), nothing else to do
 
 return 0;
 }
